@@ -38,11 +38,10 @@ class VideoTracker(object):
 
         self.args = args
 
-        self.img_size = args.img_size                   # image size in detector, default is 640
-        self.frame_interval = args.frame_interval       # frequency
-
+        self.img_size = args.img_size                   # 기본값: 640
+        self.frame_interval = args.frame_interval       # 빈도수
         self.device = select_device(args.device)
-        self.half = self.device.type != 'cpu'  # half precision only supported on CUDA
+        self.half = self.device.type != 'cpu'  # 하드웽어 가속기 설정
 
         # create video capture ****************
         if args.display:
